@@ -8,13 +8,17 @@ const PORT = 3000;
 app.use(express.json());
 app.use(cors());
 
+// Middleware para servir archivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 const readDB = () => {
-  const data = fs.readFileSync('db.json');
+  const data = fs.readFileSync(path.join(__dirname, 'public', 'db.json'));
   return JSON.parse(data);
 };
 
 const writeDB = (data) => {
-  fs.writeFileSync('db.json', JSON.stringify(data, null, 2));
+  fs.writeFileSync(path.join(__dirname, 'public', 'db.json'), JSON.stringify(data, null, 2));
 };
 
 // Crear un producto
