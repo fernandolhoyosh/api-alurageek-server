@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 // Middleware para servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
+/* app.use(express.static(path.join(__dirname, 'public')));
 
 
 const readDB = () => {
@@ -20,6 +20,20 @@ const readDB = () => {
 
 const writeDB = (data) => {
   fs.writeFileSync(path.join(__dirname, 'public', 'db.json'), JSON.stringify(data, null, 2));
+}; */
+
+const dbPath = path.join('/tmp', 'db.json');
+
+const readDB = () => {
+  if (!fs.existsSync(dbPath)) {
+    fs.writeFileSync(dbPath, JSON.stringify({ productos: [] }, null, 2));
+  }
+  const data = fs.readFileSync(dbPath);
+  return JSON.parse(data);
+};
+
+const writeDB = (data) => {
+  fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
 };
 
 // Crear un producto
