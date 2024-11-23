@@ -29,8 +29,9 @@ app.post('/productos', (req, res) => {
 
 // Obtener todos los productos
 app.get('/productos', (req, res) => {
-  const db = readDB();
-  res.json(db.productos);
+    res.header('Access-Control-Allow-Origin','*');
+    const db = readDB();
+    res.status(200).json(db.productos);
 });
 
 // Eliminar un producto
