@@ -1,4 +1,5 @@
-import database from './data/productos';
+const database = require('./data/productos.js');
+console.log(database.productos);
 
 const express = require('express');
 const fs = require('fs');
