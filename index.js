@@ -26,7 +26,7 @@ const dbPath = path.join('/tmp', 'db.json');
 
 const readDB = () => {
   if (!fs.existsSync(dbPath)) {
-    fs.writeFileSync(dbPath, JSON.stringify(path.join(__dirname, 'public', 'db.json'), null, 2));
+    fs.writeFileSync(dbPath, JSON.stringify({ productos: [] }, null, 2));
   }
   const data = fs.readFileSync(dbPath);
   return JSON.parse(data);
