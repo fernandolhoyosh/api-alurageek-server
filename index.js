@@ -69,9 +69,11 @@ app.delete('/productos/:id', (req, res) => {
 // Filtrar productos
 app.get('/productos/filtrar', (req, res) => {
   const { query } = req.query;
+  const lowerCaseQuery = query.toLowerCase();
   const db = readDB();
   const productosFiltrados = db.productos.filter(producto => 
-    producto.nombre.includes(query) || producto.precio.includes(query) || producto.imagen.includes(query)
+    producto.nombre.toLowerCase().includes(lowerCaseQuery) ||
+    producto.precio.includes(lowerCaseQuery)
   );
   res.json(productosFiltrados);
 });
