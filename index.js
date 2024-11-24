@@ -1,5 +1,5 @@
-const database = require('./data/productos.js');
-console.log(database.productos);
+const productos = require('./data/productos.js');
+console.log(productos);
 
 const express = require('express');
 const fs = require('fs');
@@ -29,7 +29,7 @@ const dbPath = path.join('/tmp', 'db.json');
 
 const readDB = () => {
   if (!fs.existsSync(dbPath)) {
-    fs.writeFileSync(dbPath, JSON.stringify(database.productos, null, 2));
+    fs.writeFileSync(dbPath, JSON.stringify({productos}, null, 2));
   }
   const data = fs.readFileSync(dbPath);
   return JSON.parse(data);

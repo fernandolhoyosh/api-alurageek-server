@@ -1,5 +1,4 @@
-const database = {
-    productos: [
+const productos = [
         {
             id: "1",
             nombre: "Mouse Genius USB",
@@ -12,7 +11,6 @@ const database = {
             precio: "7.00",
             imagen: "https://http2.mlstatic.com/D_NQ_NP_999869-MCO79611419890_102024-O.webp"
         }
-    ]
-}
+]
 
-module.exports = database;
+module.exports = productos;
