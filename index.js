@@ -1,6 +1,4 @@
 const productos = require('./data/productos.js');
-console.log(productos);
-
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -38,6 +36,12 @@ const readDB = () => {
 const writeDB = (data) => {
   fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
 };
+
+//Ruta principal
+
+app.get('/', (req, res) => {
+  res.status(200).json({message: 'Servidor para AluraGeek corriendo OK'})
+});
 
 // Crear un producto
 app.post('/productos', (req, res) => {
