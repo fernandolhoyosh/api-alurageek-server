@@ -22,7 +22,7 @@ const writeDB = (data) => {
   fs.writeFileSync(path.join(__dirname, 'public', 'db.json'), JSON.stringify(data, null, 2));
 }; */
 
-const dbPath = path.join('/tmp', 'db.json');
+const dbPath = path.join('/tmp', __dirname, 'tmp', 'db.json');
 
 const readDB = () => {
   if (!fs.existsSync(dbPath)) {
